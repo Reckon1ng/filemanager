@@ -74,6 +74,19 @@ class Application():
             self.FS.popPath(self.pwdPath,nodeName)
         except:
             pass
+        
+    def getNodeInfo(self, nodeName):
+        node = self.FS.generateNode(nodeName)
+        if node is None:
+            print(f"Node {nodeName} does not exist")
+            return 
+        tags,size,lastAccessed, creationTime = node.tags, node.size, node.lastAccessed, node.creationTime
+        print(f"Node {nodeName} information:")
+        print(f"Tags: {tags}")
+        print(f"Size: {size}")
+        print(f"Last accessed: {lastAccessed}")
+        print(f"Creation time: {creationTime}")
+            
 
 dut = Application()
 dut.addObject("sus")
